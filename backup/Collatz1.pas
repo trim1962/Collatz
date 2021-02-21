@@ -9,14 +9,12 @@ var
   tfOut: TextFile;
    n: LongInt;
    m: LongInt;
-   max: LongInt;
 
    contatore: LongInt;
    numeri : array[1..t] of LongInt;
 Begin
 AssignFile(tfOut, C_FNAME);
     rewrite(tfOut);
-max:=0;
 for m:=1 to t do Begin
    n:=m;
    contatore:=0;
@@ -28,7 +26,6 @@ for m:=1 to t do Begin
       Writeln('n=',n, ' ');
       contatore:=contatore + 1;
    Until(n = 1);
-   if contatore > max then max:=contatore;
    Writeln;
    Writeln (contatore);
    numeri[m]:=contatore;
@@ -59,5 +56,4 @@ while m<= t  do
     End;
   Writeln(tfOut,'\bottomrule','\end{longtable}');
 CloseFile(tfOut);
-Writeln('massimo ciclo', max);
 End.

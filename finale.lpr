@@ -1,0 +1,5 @@
+program finale;
+
+begin
+end.
+

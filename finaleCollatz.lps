@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="finaleCollatz.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="19"/>
+        <CursorPos X="10" Y="8"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="cicliCollatz1.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="53"/>
+        <CursorPos X="12" Y="6"/>
+        <UsageCount Value="10"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="Collatz1.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="40"/>
+        <CursorPos X="73" Y="63"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit2>
+    </Units>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="finaleCollatz.pas"/>
+        <Caret Line="55" Column="31" TopLine="43"/>
+      </Position1>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
