@@ -4,12 +4,12 @@ unit MioType;
 
 interface
  const
-  C_FNAME = 'Collatz.tex';
-  CSVNUM_FNAME = 'CollatzNUM.csv';
-  CSVTOP_FNAME = 'CollatzTOP.csv';
-  t =1800;
+  MioType_C_FNAME = 'Collatz.tex';
+  MioType_CSVNUM_FNAME = 'CollatzNUM.csv';
+  MioType_CSVTOP_FNAME = 'CollatzTOP.csv';
+  MioType_t_max =120;
   type
-   mioarray=array[1..t] of Qword;
+   MioType_mioarray=array[1..MioType_t_max] of Qword;
 
 implementation
 

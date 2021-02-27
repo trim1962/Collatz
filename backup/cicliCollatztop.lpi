@@ -26,7 +26,7 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="cicliCollatztop.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -40,6 +40,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="MioType"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="vettori.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Vettori"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
