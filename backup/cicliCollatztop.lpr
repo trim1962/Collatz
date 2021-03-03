@@ -72,7 +72,7 @@ if nc<>1 then writeln(tfOut,'\\');
 end;
 Stampa_chiusuralong(tfOut);
   m:=1;
-  Stampa_stampauno_Semplificata(tfOut);
+  Stampa_stampauno_Semplificata(tfOut,'Lunghezza ciclo');
 while m<= MioType_t_max do
     Begin
           Stampa_stampalinea_Semplificata(tfOut,m,numeri);
