@@ -18,7 +18,7 @@ var
    numeri : array[1..t] of Qword;
    contatori : array[1..t] of Qword;
 Begin
- AssignFile(tfOut, C_FNAME);
+ AssignFile(tfOut, Tex_FNAME);
      rewrite(tfOut) ;
   AssignFile(tfcsvOut, CVS_FNAME);
    rewrite(tfcsvOut) ;

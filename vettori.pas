@@ -5,7 +5,7 @@ unit Vettori;
 interface
 
 uses
-  Classes, SysUtils,MioType;
+   MioType;
    procedure Vettori_boubledec(var vet:MioType_mioarray);
    procedure Vettori_boublecre(var vet:MioType_mioarray);
    procedure Vettori_stampavet(var vet:MioType_mioarray);

@@ -5,12 +5,15 @@ unit stampa;
 interface
 
 uses
-  Classes, SysUtils,MioType;
+  SysUtils,MioType;
+  procedure Stampa_stampatitolo(var t:textfile);
   procedure Stampa_stampauno(var t:textfile);
   procedure Stampa_stampauno_Semplificata(var t:textfile);
   procedure Stampa_stampadue(var t:textfile);
   procedure Stampa_stampatre(var t:textfile);
   procedure Stampa_stampaquattro(var t:textfile);
+//  procedure Stampa_stampacinque(var t:textfile);
+  procedure Stampa_stampacinque(var t:textfile;titolo:string);
   procedure Stampa_chiusuralong(var t:textfile);
   procedure Stampa_stampalinea(var t:textfile;var m:Qword;var numeri:MioType_mioarray);
   procedure Stampa_stampalinea_Semplificata(var t:textfile;var m:Qword;var numeri:MioType_mioarray);
@@ -18,12 +21,18 @@ uses
   procedure Stampa_stampacsv(var t:textfile;var m:Qword;var numeri:MioType_mioarray);
   function  Stampa_stampasenonzero(t:Qword):string;
 implementation
-procedure Stampa_stampauno(var t:textfile);
+procedure Stampa_stampatitolo(var t:textfile);
 begin
 Writeln(t,'\chapter{Congettura di Collatz}');
 Writeln(t,'\citaoeis{A006577}');
+end;
+
+procedure Stampa_stampauno(var t:textfile);
+begin
+//Writeln(t,'\chapter{Congettura di Collatz}');
+//Writeln(t,'\citaoeis{A006577}');
 Writeln(t ,'\begin{longtable}{llllllllllll}\toprule');
- Writeln(t , '\caption{Numero e lunghezza ciclo}\\');
+ Writeln(t , '\caption{Lunghezza ciclo}\\');
  Writeln(t , '\midrule');
  Writeln(t , '\textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}& \textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}& \textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}\\');
  Writeln(t ,'\midrule');
@@ -42,13 +51,10 @@ begin
 Writeln(t,'\chapter{Congettura di Collatz}');
 Writeln(t,'\citaoeis{A006577}');
 Writeln(t ,'\begin{longtable}{llllllllllll}\toprule');
- Writeln(t , '\caption{Numero e lunghezza ciclo}\\');
-// Writeln(t , '\midrule');
- //Writeln(t , '\textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}& \textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}& \textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}\\');
+ Writeln(t , '\caption{Lunghezza ciclo}\\');
  Writeln(t ,'\midrule');
  Writeln(t ,'\endfirsthead' );
   Writeln(t ,'\multicolumn{12}{c} {\tablename\ \thetable\ -- \textit{Continua dalla pagina precedente}} \\');
-//  Writeln(t , '\textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}& \textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}& \textbf{n} & \textbf{l} & \textbf{n} & \textbf{l}\\');
   Writeln(t , '\toprule');
   Writeln(t ,'\endhead');
   Writeln(t ,'\bottomrule');
@@ -79,7 +85,7 @@ Writeln(t ,'\begin{longtable}{llllllllllll}\toprule');
  Writeln(t ,   '\caption{Frequenza cicli}\\');
  Writeln(t , '\midrule');
  Writeln(t , '\textbf{c} & \textbf{f} & \textbf{c} & \textbf{f}& \textbf{c} & \textbf{f} & \textbf{c} & \textbf{f}& \textbf{c} & \textbf{f} & \textbf{c} & \textbf{f}\\');
- Writeln(t ,'\midrule');
+ Writeln(t ,'\toprule');
  Writeln(t ,'\endfirsthead' );
   Writeln(t ,'\multicolumn{12}{c} {\tablename\ \thetable\ -- \textit{Continua dalla pagina precedente}} \\');
   Writeln(t , '\textbf{c} & \textbf{f} & \textbf{c} & \textbf{f}& \textbf{c} & \textbf{f} & \textbf{c} & \textbf{f}& \textbf{c} & \textbf{f} & \textbf{c} & \textbf{f}\\');
@@ -117,6 +123,21 @@ Writeln(t ,'\begin{longtable}{llllllllllll}\toprule');
  Writeln(t ,   '\caption{Cicli massimi}\\');
  Writeln(t , '\midrule');
 // Writeln(t ,'\midrule');
+ Writeln(t ,'\endfirsthead' );
+  Writeln(t ,'\multicolumn{12}{c} {\tablename\ \thetable\ -- \textit{Continua dalla pagina precedente}} \\');
+  Writeln(t , '\toprule');
+  Writeln(t ,'\endhead');
+  Writeln(t ,'\bottomrule');
+  Writeln(t ,'\multicolumn{12}{r} {\textit{Continua nella pagina successiva}} \\');
+  Writeln(t ,'\endfoot' );
+  Writeln(t ,'\endlastfoot');
+end;
+procedure Stampa_stampacinque(var t:textfile;titolo:string);
+ begin
+Writeln(t,'\section{',titolo,'}');
+Writeln(t ,'\begin{longtable}{llllllllllll}\toprule');
+// Writeln(t ,'\caption{Cicli massimi comuni}\\');
+Writeln(t ,'\caption{',titolo,'}\\');
  Writeln(t ,'\endfirsthead' );
   Writeln(t ,'\multicolumn{12}{c} {\tablename\ \thetable\ -- \textit{Continua dalla pagina precedente}} \\');
   Writeln(t , '\toprule');

@@ -5,7 +5,8 @@ unit Vettori;
 interface
 
 uses
-  Classes, SysUtils,MioType;
+  //SysUtils,MioType;
+   MioType;
    procedure Vettori_boubledec(var vet:MioType_mioarray);
    procedure Vettori_boublecre(var vet:MioType_mioarray);
    procedure Vettori_stampavet(var vet:MioType_mioarray);
@@ -74,7 +75,6 @@ until i>MioType_t_max;
     i:Qword;
     begin
     for i:=1 to max do vet[i]:=0;
-    end;
     end;
 
 end.

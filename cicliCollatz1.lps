@@ -8,8 +8,8 @@
       <Unit0>
         <Filename Value="cicliCollatz1.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="41"/>
-        <CursorPos X="39" Y="72"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="24" Y="21"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -37,13 +37,12 @@
       </Unit3>
       <Unit4>
         <Filename Value="Collatz1.pas"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit4>
     </Units>
-    <JumpHistory Count="17" HistoryIndex="16">
+    <JumpHistory Count="18" HistoryIndex="17">
       <Position1>
         <Filename Value="cicliCollatz1.pas"/>
         <Caret Line="46" Column="16" TopLine="40"/>
@@ -112,6 +111,9 @@
         <Filename Value="cicliCollatz1.pas"/>
         <Caret Line="17" Column="3" TopLine="4"/>
       </Position17>
+      <Position18>
+        <Filename Value="Collatz1.pas"/>
+      </Position18>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

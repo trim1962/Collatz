@@ -3,7 +3,8 @@ uses
  Sysutils;
 
 const
-  C_FNAME = 'Collatz2.tex';
+  Tex_FNAME = 'Collatz.tex';
+
   CVS_FNAME = 'Collatz2.csv';
   t =6000;
 var

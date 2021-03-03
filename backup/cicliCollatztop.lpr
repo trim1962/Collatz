@@ -1,14 +1,15 @@
+//28/02/2021 16:34:24
 program cicliCollatztop;
 
 uses
- Sysutils, stampa, MioType, vettori;
+ Sysutils, stampa, MioType, vettori, matematica;
 
 
 var
   tfOut: TextFile;
   tfcsvOut: TextFile;
   tfcsvtopOut: TextFile;
-   n: Qword;
+   n,nc: Qword;
    m,im, i: Qword;
    maxcontatore: Qword;
 
@@ -21,6 +22,8 @@ var
    lunglinea:integer;
    vett: MioType_mioarray;
 
+{$R *.res}
+
 Begin
  AssignFile(tfOut, MioType_C_FNAME); // file out per il file tex
      rewrite(tfOut) ;
@@ -30,28 +33,44 @@ Begin
    rewrite(tfcsvtopOut) ;
 Vettori_azzera(contatori, MioType_t_max);
 Vettori_azzera(topciclo, MioType_t_max);
+linea:='';
+for lunglinea:=1 to 11 do
+AppendStr(linea,'&');
+ AppendStr(linea,'\\');
+Stampa_stampatitolo(tfOut);
 maxcontatore:=0;   // valore piu lungo del ciclo
-for m:=1 to MioType_t_max do Begin    // ciclo calcolo Collatz
+ Stampa_stampacinque(tfOut,'Cicli');
+for m:=1 to MioType_t_max do
+Begin    // ciclo calcolo Collatz
    n:=m;
    contatore:=0;
+   writeln(tfOut);
+  // writeln(tfOut,'\midrule');
+   writeln(tfOut,m,linea);
+   nc:=1;
    Repeat
-      If(n mod 2 = 0) Then
-         n:=n Div 2
-      Else
-         n:=3*n+1;
-      Writeln('m=',' ',m,' ', 'n=',n);
+      n:=Matematica_Collatz(n);
+                         if nc<MioType_LungLineamax then
+                             begin
+                             write(tfOut,n,'& ');
+                             nc:=nc+1;
+                             end
+                             else
+                             begin
+                             write(tfOut,n,'\\');
+                              writeln(tfOut);
+                             nc:=1;
+                             end;
       contatore:=contatore + 1;
       if n > topciclo[m]then topciclo[m]:=n;  //valore più alto raggiunto
    Until(n = 1);
+   // writeln(nc);
+if nc<>1 then writeln(tfOut,'\\');
    if contatore > maxcontatore then maxcontatore:=contatore;     // valore piu lungo del ciclo
-   Writeln;
-   Writeln ('m= ',m,' ','contatore=  ', contatore);
    contatori[contatore]:= contatori[contatore]+1;
    numeri[m]:=contatore;
 end;
-  //for n:=1 to maxcontatore do writeln(n,' ',contatori[n]);
-  //for n:=1 to MioType_t_max do  writeln(n,' ',topciclo[n]);
-  //for n:=1 to MioType_t_max do  writeln(n,' ',numeri[n]);
+Stampa_chiusuralong(tfOut);
   m:=1;
   Stampa_stampauno_Semplificata(tfOut);
 while m<= MioType_t_max do
@@ -88,8 +107,7 @@ begin
 Stampa_stampacsv(tfcsvtopOut,n,topciclo);
 n:=n+1;
 end;
-CloseFile(tfcsvOut);
-CloseFile(tfcsvtopOut);
+
 Writeln('massimo ciclo', maxcontatore);
 
 for n:=1 to MioType_t_max do vett[n]:=topciclo[n];   //viene duplicato topciclo
@@ -106,14 +124,7 @@ Vettori_azzeradoppivet(vett);  // vengono tolti da vett i valori duplicati
        end;
    end;
    im:=im-1;// correzione indice
-   //i:=1;
-   //while i<=im do
-   //begin
-   //Writeln(Stampa_stampasenonzero(maxciclo[i]),'&',Stampa_stampasenonzero(maxciclo[i+1]),'&',Stampa_stampasenonzero(maxciclo[i+2]),'&',Stampa_stampasenonzero(maxciclo[i+3]),'&',Stampa_stampasenonzero(maxciclo[i+4]),'&',Stampa_stampasenonzero(maxciclo[i+5]),'\\');
-   //i:=i+6;
-   //end;
-  // Vettori_stampavet(vett);
-  Stampa_stampaquattro(tfOut);
+   Stampa_stampaquattro(tfOut);
   m:=1;
  while m<= im  do
     Begin
@@ -121,39 +132,59 @@ Vettori_azzeradoppivet(vett);  // vengono tolti da vett i valori duplicati
           m:=m+12;
     End;
    Stampa_chiusuralong(tfOut);
-CloseFile(tfOut);
+ Stampa_stampacinque(tfOut,'Cicli massimi comuni');
 i:=1;
 n:=1;
-linea:='';
-for lunglinea:=1 to 11 do
-AppendStr(linea,',&');
- AppendStr(linea,'\\');
+
+
 while i <= im do
 begin
-writeln(maxciclo[i],linea);
+writeln(tfOut,maxciclo[i],linea);
      for m:=1 to  MioType_t_max do
      begin
           if topciclo[m]=maxciclo[i]
           then
-              if n<= 12
-                 then
+           //   if n<= MioType_LungLineamax
+             //    then
                      begin
-                          write('& ',m,' ');
-                          n:=n+1
-                     end
-                 else
-                     begin
+                         if n<MioType_LungLineamax then
+                                    begin
+                                    write(tfOut,m,'& ');
+                                    n:=n+1;
+                                    end
+                         else
+                         begin
+                           write(tfOut,m,'\\');
+                            writeln(tfOut);
                           n:=1;
-                          writeln('\\');
-                     end;
+                         end;
+                     end
+                 //else
+                    // begin
+                         // n:=1;
+                         // writeln(tfOut,'\\');
+                    // end;
      end;
-  if n<=12 then begin   for lunglinea:=1 to 11-n do
-AppendStr(linea,',&');
- AppendStr(linea,'\\');
- end;
-         n:=1;
+  //writeln('n= ',n);
          i:=i+1;
-         writeln('\\');
+    if n<>1 then writeln(tfOut,'\\');
+
+end;
+Stampa_chiusuralong(tfOut);
+CloseFile(tfcsvOut);
+CloseFile(tfcsvtopOut);
+CloseFile(tfOut);
+for m:=1 to im do
+Begin    // ciclo calcolo Collatz
+   n:=maxciclo[m];
+   contatore:=0;
+   Repeat
+      n:=Matematica_Collatz(n);
+      Writeln('m=',' ',m,' ', 'n=',n);
+      contatore:=contatore + 1;
+   Until(n = 1);
+   Writeln;
+   Writeln ('m= ',maxciclo[m] ,' ','contatore=  ', contatore);
 end;
 End.
 
