@@ -8,6 +8,7 @@
         <MainUnitHasCreateFormStatements Value="False"/>
         <MainUnitHasTitleStatement Value="False"/>
         <MainUnitHasScaledStatement Value="False"/>
+        <UseDefaultCompilerOptions Value="True"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
@@ -18,47 +19,11 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <BuildNr Value="2"/>
-      <Language Value="0410"/>
-      <StringTable InternalName="Collatz"/>
+      <MajorVersionNr Value="1"/>
+      <MinorVersionNr Value="1"/>
     </VersionInfo>
-    <BuildModes Count="2">
+    <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
-      <Item2 Name="Debug">
-        <CompilerOptions>
-          <Version Value="11"/>
-          <PathDelim Value="\"/>
-          <Target>
-            <Filename Value="cicliCollatztop"/>
-          </Target>
-          <SearchPaths>
-            <IncludeFiles Value="$(ProjOutDir)"/>
-            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
-          </SearchPaths>
-          <Parsing>
-            <SyntaxOptions>
-              <IncludeAssertionCode Value="True"/>
-            </SyntaxOptions>
-          </Parsing>
-          <CodeGeneration>
-            <Checks>
-              <IOChecks Value="True"/>
-              <RangeChecks Value="True"/>
-              <OverflowChecks Value="True"/>
-              <StackChecks Value="True"/>
-            </Checks>
-            <VerifyObjMethodCallValidity Value="True"/>
-          </CodeGeneration>
-          <Linking>
-            <Debugging>
-              <DebugInfoType Value="dsDwarf2Set"/>
-              <UseHeaptrc Value="True"/>
-              <TrashVariables Value="True"/>
-              <UseExternalDbgSyms Value="True"/>
-            </Debugging>
-          </Linking>
-        </CompilerOptions>
-      </Item2>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -68,29 +33,35 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
-        <Filename Value="cicliCollatztop.lpr"/>
+        <Filename Value="cicliCollatztop.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="stampa.pas"/>
+        <Filename Value="..\StampaTex\stampa.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit1>
       <Unit2>
-        <Filename Value="miotype.pas"/>
+        <Filename Value="..\MytypeFiles\mytype.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="MioType"/>
+        <UnitName Value="Mytype"/>
       </Unit2>
       <Unit3>
-        <Filename Value="vettori.pas"/>
+        <Filename Value="..\vettori\vettori.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Vettori"/>
       </Unit3>
       <Unit4>
-        <Filename Value="matematica.pas"/>
+        <Filename Value="..\Mymath\mymath.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="MyMath"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="..\Myutility\myutility.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MyUtility"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -101,6 +72,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="..\StampaTex;..\MytypeFiles;..\vettori;..\Mymath;..\Myutility"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
   </CompilerOptions>

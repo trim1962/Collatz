@@ -2,7 +2,7 @@
 program cicliCollatztop;
 
 uses
- Sysutils, stampa, MioType, vettori, matematica;
+ Sysutils, vettori, stampa, Mytype, MyMath, MyUtility;
 
 
 var
@@ -14,13 +14,12 @@ var
    maxcontatore: Qword;
 
    contatore: Qword;
-   numeri : MioType_mioarray;  // lunghezza ciclo   per il numer
-   topciclo,maxciclo : MioType_mioarray;// valore massimo ciclo per il numero
+   numeri : MyType_arrayQword;  // lunghezza ciclo   per il numer
+   topciclo,maxciclo : MyType_arrayQword;// valore massimo ciclo per il numero
 
-   contatori : MioType_mioarray; // frequenza lunghezza ciclo
+   contatori : MyType_arrayQword; // frequenza lunghezza ciclo
    linea:string;
-   lunglinea:integer;
-   vett: MioType_mioarray;
+   vett: MyType_arrayQword;
 
 {$R *.res}
 
@@ -31,16 +30,15 @@ Begin
    rewrite(tfcsvOut) ;
    AssignFile(tfcsvtopOut, MioType_CSVTOP_FNAME); // file cvs per topciclo
    rewrite(tfcsvtopOut) ;
-Vettori_azzera(contatori, MioType_t_max);
-Vettori_azzera(topciclo, MioType_t_max);
-linea:='';
-for lunglinea:=1 to 11 do
-AppendStr(linea,'&');
- AppendStr(linea,'\\');
-Stampa_stampatitolo(tfOut);
+Vettori_azzera(contatori, MyType_Max_Numero);
+Vettori_azzera(topciclo, MyType_Max_Numero);
+linea:=MyUtility_lineatabella(MyType_Max_Rigamezza-1);
+
+
+Stampa_stampatitolocapitolo(tfOut,'Congettura di Collatz','A006577');
 maxcontatore:=0;   // valore piu lungo del ciclo
- Stampa_stampacinque(tfOut,'Cicli');
-for m:=1 to MioType_t_max do
+Stampa_stampauno_Semplificata(tfOut,'Cicli',MyType_Max_Rigamezza);
+for m:=1 to MyType_Max_Numero do
 Begin    // ciclo calcolo Collatz
    n:=m;
    contatore:=0;
@@ -50,7 +48,7 @@ Begin    // ciclo calcolo Collatz
    nc:=1;
    Repeat
       n:=Matematica_Collatz(n);
-                         if nc<MioType_LungLineamax then
+                         if nc<MyType_Max_Rigamezza then
                              begin
                              write(tfOut,n,'& ');
                              nc:=nc+1;
@@ -71,14 +69,31 @@ if nc<>1 then writeln(tfOut,'\\');
    numeri[m]:=contatore;
 end;
 Stampa_chiusuralong(tfOut);
-  m:=1;
-  Stampa_stampauno_Semplificata(tfOut,'Lunghezza ciclo');
-while m<= MioType_t_max do
+
+  Stampa_stampatitolosezione(tfOut,'Lunghezza ciclo');
+  Stampa_stampauno_Semplificata(tfOut,'Lunghezza ciclo',MyType_Max_Rigamezza+6);
+    m:=1;
+    nc:=1;
+while m<= MyType_Max_Numero do
     Begin
-          Stampa_stampalinea_Semplificata(tfOut,m,numeri);
-          m:=m+12;
+       if nc<MyType_Max_Rigamezza+6 then
+                             begin
+                             write(tfOut,numeri[m],'& ');
+                             nc:=nc+1;
+                             end
+                             else
+                             begin
+                             write(tfOut,numeri[m],'\\');
+                              writeln(tfOut);
+                             nc:=1;
+                             end;
+          //Stampa_stampalinea_Semplificata(tfOut,m,numeri);
+          //m:=m+MyType_Max_Riga;
+          m:=m+1;
     End;
+    if nc<>1 then writeln(tfOut,'\\');
 Stampa_chiusuralong(tfOut);
+Stampa_stampatitolosezione(tfOut,'Frequenza cicli');
   Stampa_stampadue(tfOut);
   m:=1;
 while m<= maxcontatore  do
@@ -87,9 +102,10 @@ while m<= maxcontatore  do
        m:=m+6;
     End;
 Stampa_chiusuralong(tfOut);
+Stampa_stampatitolosezione(tfOut,'Valori massini');
 Stampa_stampatre(tfOut);
 m:=1;
- while m<= MioType_t_max  do
+ while m<= MyType_Max_Numero  do
     Begin
          Stampa_stampalinea(tfOut,m,topciclo);
           m:=m+6;
@@ -102,7 +118,7 @@ Stampa_stampacsv(tfcsvOut,n,contatori);
 n:=n+1;
 end;
 n:=1;
-while n<=MioType_t_max do
+while n<=MyType_Max_Numero do
 begin
 Stampa_stampacsv(tfcsvtopOut,n,topciclo);
 n:=n+1;
@@ -110,12 +126,12 @@ end;
 
 Writeln('massimo ciclo', maxcontatore);
 
-for n:=1 to MioType_t_max do vett[n]:=topciclo[n];   //viene duplicato topciclo
+for n:=1 to MyType_Max_Numero do vett[n]:=topciclo[n];   //viene duplicato topciclo
 Vettori_boubledec(vett);     // viene ordinato in senso decrescete vett
 Vettori_azzeradoppivet(vett);  // vengono tolti da vett i valori duplicati
    Vettori_boublecre(vett);  //ordina vett in modo crescente
    im:=1;
-   for i:=1 to  MioType_t_max do   //estrai da vett i valori diversi da zero
+   for i:=1 to  MyType_Max_Numero do   //estrai da vett i valori diversi da zero
    begin
    if vett[i]<>0 then
        begin
@@ -124,50 +140,66 @@ Vettori_azzeradoppivet(vett);  // vengono tolti da vett i valori duplicati
        end;
    end;
    im:=im-1;// correzione indice
-   Stampa_stampaquattro(tfOut);
+    Stampa_stampatitolosezione(tfOut,'Cicli massini');
+   //Stampa_stampaquattro(tfOut);
+   Stampa_stampauno_Semplificata(tfOut,'Cicli massini',MyType_Max_Rigamezza+6);
   m:=1;
+  nc:=1;
  while m<= im  do
-    Begin
-         Stampa_stampalinea_Semplificatanozero(tfOut,m,maxciclo);
-          m:=m+12;
-    End;
+  begin
+  if nc<MyType_Max_Rigamezza+6 then
+                             begin
+                             write(tfOut,maxciclo[m],'& ');
+                             nc:=nc+1;
+                             end
+                             else
+                             begin
+                             write(tfOut,maxciclo[m],'\\');
+                              writeln(tfOut);
+                             nc:=1;
+                             end;
+
+   m:=m+1;
+  end;
+   if nc<>1 then writeln(tfOut,'\\');
+
+
+
+    //Begin
+    //     Stampa_stampalinea_Semplificatanozero(tfOut,m,maxciclo);
+    //      m:=m+12;
+    //End;
    Stampa_chiusuralong(tfOut);
- Stampa_stampacinque(tfOut,'Cicli massimi comuni');
+   Stampa_stampatitolosezione(tfOut,'Cicli massimi comuni');
+ Stampa_stampauno_Semplificata(tfOut,'Cicli massimi comuni',MyType_Max_Riga);
 i:=1;
-n:=1;
-
-
+nc:=1;
+linea:=MyUtility_lineatabella(MyType_Max_Riga-1);
 while i <= im do
 begin
 writeln(tfOut,maxciclo[i],linea);
-     for m:=1 to  MioType_t_max do
+     for m:=1 to  MyType_Max_Numero do
      begin
           if topciclo[m]=maxciclo[i]
           then
-           //   if n<= MioType_LungLineamax
-             //    then
+
                      begin
-                         if n<MioType_LungLineamax then
+                         if nc<MyType_Max_Riga then
                                     begin
                                     write(tfOut,m,'& ');
-                                    n:=n+1;
+                                    nc:=nc+1;
                                     end
                          else
                          begin
                            write(tfOut,m,'\\');
                             writeln(tfOut);
-                          n:=1;
+                          nc:=1;
                          end;
-                     end
-                 //else
-                    // begin
-                         // n:=1;
-                         // writeln(tfOut,'\\');
-                    // end;
+                     end;
+
      end;
-  //writeln('n= ',n);
          i:=i+1;
-    if n<>1 then writeln(tfOut,'\\');
+    if nc<>1 then writeln(tfOut,'\\');
 
 end;
 Stampa_chiusuralong(tfOut);

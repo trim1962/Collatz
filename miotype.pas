@@ -7,7 +7,7 @@ interface
   MioType_C_FNAME = 'Collatz.tex';
   MioType_CSVNUM_FNAME = 'CollatzNUM.csv';
   MioType_CSVTOP_FNAME = 'CollatzTOP.csv';
-  MioType_t_max =1200;
+  MioType_t_max =120000;
   MioType_LungLineamax =12;
   type
    MioType_mioarray=array[1..MioType_t_max] of Qword;

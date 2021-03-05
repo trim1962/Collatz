@@ -8,11 +8,10 @@ uses
   SysUtils,MioType;
   procedure Stampa_stampatitolo(var t:textfile);
   procedure Stampa_stampauno(var t:textfile);
-  procedure Stampa_stampauno_Semplificata(var t:textfile);
+  procedure Stampa_stampauno_Semplificata(var t:textfile;titolo:string);
   procedure Stampa_stampadue(var t:textfile);
   procedure Stampa_stampatre(var t:textfile);
   procedure Stampa_stampaquattro(var t:textfile);
-//  procedure Stampa_stampacinque(var t:textfile);
   procedure Stampa_stampacinque(var t:textfile;titolo:string);
   procedure Stampa_chiusuralong(var t:textfile);
   procedure Stampa_stampalinea(var t:textfile;var m:Qword;var numeri:MioType_mioarray);
@@ -46,10 +45,8 @@ Writeln(t ,'\begin{longtable}{llllllllllll}\toprule');
   Writeln(t ,'\endfoot' );
   Writeln(t ,'\endlastfoot');
 end;
-procedure Stampa_stampauno_Semplificata(var t:textfile);
+procedure Stampa_stampauno_Semplificata(var t:textfile;titolo:string);
 begin
-Writeln(t,'\chapter{Congettura di Collatz}');
-Writeln(t,'\citaoeis{A006577}');
 Writeln(t ,'\begin{longtable}{llllllllllll}\toprule');
  Writeln(t , '\caption{Lunghezza ciclo}\\');
  Writeln(t ,'\midrule');

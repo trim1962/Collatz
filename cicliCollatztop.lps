@@ -3,114 +3,73 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="11"/>
-    <BuildModes Count="1" Active="Release">
-      <Item1 Name="Release">
-        <CompilerOptions>
-          <Version Value="11"/>
-          <PathDelim Value="\"/>
-          <Target>
-            <Filename Value="cicliCollatztop"/>
-          </Target>
-          <SearchPaths>
-            <IncludeFiles Value="$(ProjOutDir)"/>
-            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
-          </SearchPaths>
-          <CodeGeneration>
-            <SmartLinkUnit Value="True"/>
-            <TargetCPU Value="x86_64"/>
-            <TargetOS Value="win64"/>
-            <Optimizations>
-              <OptimizationLevel Value="4"/>
-            </Optimizations>
-          </CodeGeneration>
-          <Linking>
-            <Debugging>
-              <GenerateDebugInfo Value="False"/>
-            </Debugging>
-            <LinkSmart Value="True"/>
-          </Linking>
-          <Other>
-            <WriteFPCLogo Value="False"/>
-          </Other>
-        </CompilerOptions>
-      </Item1>
-    </BuildModes>
-    <Units Count="10">
+    <BuildModes Active="Default"/>
+    <Units Count="8">
       <Unit0>
-        <Filename Value="cicliCollatztop.lpr"/>
+        <Filename Value="cicliCollatztop.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="81" Y="29"/>
-        <FoldState Value=" TM Hi421A"/>
-        <UsageCount Value="86"/>
+        <TopLine Value="202"/>
+        <CursorPos X="52" Y="182"/>
+        <UsageCount Value="20"/>
       </Unit0>
       <Unit1>
-        <Filename Value="stampa.pas"/>
+        <Filename Value="..\StampaTex\stampa.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="28"/>
-        <CursorPos X="39" Y="34"/>
-        <UsageCount Value="86"/>
+        <TopLine Value="121"/>
+        <CursorPos X="7" Y="110"/>
+        <UsageCount Value="20"/>
       </Unit1>
       <Unit2>
         <Filename Value="miotype.pas"/>
-        <IsPartOfProject Value="True"/>
         <UnitName Value="MioType"/>
         <EditorIndex Value="-1"/>
-        <CursorPos Y="9"/>
-        <UsageCount Value="86"/>
+        <TopLine Value="5"/>
+        <CursorPos X="28" Y="11"/>
+        <UsageCount Value="10"/>
       </Unit2>
       <Unit3>
-        <Filename Value="vettori.pas"/>
+        <Filename Value="..\MytypeFiles\mytype.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Mytype"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="8"/>
+        <CursorPos X="26" Y="18"/>
+        <UsageCount Value="20"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\vettori\vettori.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Vettori"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="12" Y="8"/>
-        <UsageCount Value="80"/>
-      </Unit3>
-      <Unit4>
-        <Filename Value="matematica.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="7"/>
-        <CursorPos X="9" Y="16"/>
-        <UsageCount Value="49"/>
+        <TopLine Value="22"/>
+        <CursorPos X="51" Y="69"/>
+        <UsageCount Value="20"/>
       </Unit4>
       <Unit5>
-        <Filename Value="finale.lpr"/>
+        <Filename Value="..\Mymath\mymath.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MyMath"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="63" Y="5"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="20"/>
       </Unit5>
       <Unit6>
-        <Filename Value="finaleCollatz.pas"/>
+        <Filename Value="stampa.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="43"/>
-        <CursorPos Y="46"/>
-        <UsageCount Value="4"/>
+        <TopLine Value="8"/>
+        <CursorPos X="11" Y="48"/>
+        <UsageCount Value="10"/>
       </Unit6>
       <Unit7>
-        <Filename Value="C:\Lazarus\lazarus\components\onlinepackagemanager\onlinepackagemanager.pas"/>
-        <UnitName Value="OnlinePackageManager"/>
+        <Filename Value="..\Myutility\myutility.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MyUtility"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="7"/>
+        <CursorPos X="45" Y="6"/>
+        <UsageCount Value="20"/>
       </Unit7>
-      <Unit8>
-        <Filename Value="..\systools\systools\source\general\run\stbase.pas"/>
-        <UnitName Value="StBase"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="660"/>
-        <CursorPos X="92" Y="671"/>
-        <UsageCount Value="7"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="C:\Lazarus\fpcsrc\rtl\inc\systemh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="712"/>
-        <CursorPos X="30" Y="719"/>
-        <UsageCount Value="8"/>
-      </Unit9>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="-1"/>

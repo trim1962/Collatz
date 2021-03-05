@@ -33,7 +33,7 @@ Begin
    rewrite(tfcsvtopOut) ;
 Vettori_azzera(contatori, MioType_t_max);
 Vettori_azzera(topciclo, MioType_t_max);
-linea:='';
+linea:='\midrule';
 for lunglinea:=1 to 11 do
 AppendStr(linea,'&');
  AppendStr(linea,'\\');
